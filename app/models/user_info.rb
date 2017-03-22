@@ -1,19 +1,25 @@
 class UserInfo 
-  attr_reader :name
+ attr_reader :name,
+             :followers,
+             :following,
+             :repo
 
-  def initialize(user_info)
-    @name = user_details[:name]
-  end
-
-  def self.
-
-  # def self.find_for_user(current_user)
-  #   service = GithubService.new
-  #   byebug
-  #   user_info = service.find_for_user(current_user)
-  #   new(user_info)
-  # end
+def initialize(user_information)
+  @name = user_info[:name]
+  byebug
+  @followers = user_info[:followers]
+  @following = user_info[:following]
+  @repo = user_details[:public_repos]
+  byebug
 end
 
+def find_user_info(current_user)
+  byebug
+    details = GithubService.new(current_user, access_token)
+    user_information = details.user_info
+    byebug
+end
+
+end
 
 
