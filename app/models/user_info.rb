@@ -2,7 +2,7 @@ class UserInfo
 attr_reader :name,
             :followers,
             :following,
-            :repos,
+            :repo,
             :image
 
   def initialize(user_information)

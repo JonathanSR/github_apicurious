@@ -1,7 +1,6 @@
 class CommitsController < ApplicationController
 
   def index
-    #byebug
-    @commits = Commit.find_commit_info(current_user, repo)
+    @commits = Commit.find_commit_info(current_user)
   end
 end

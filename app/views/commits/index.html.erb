@@ -1,6 +1,10 @@
  <% @commits.each do |commit|%>
- <%= @commit.author%>
- <%= @commit.message%>
- <%= @commit.date%>
+ <% if commit.type == "PushEvent"%>
+ <h3><%= commit.repo%></h3>
+<p> <%= commit.repo_url%> </p>
+ <p><%= commit.message.first[:message]%></p>
+ <p><%= commit.date%></p>
+ <%else%>
  <% end %>
+ <% end%>
  
