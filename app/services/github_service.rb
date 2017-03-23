@@ -40,12 +40,12 @@ class GithubService
     parse(connection.get("users/#{current_user.username}/followers#{client_key_and_secret}"))    
   end
 
-  def recent_commits
-    parse(connection.get("users/#{current_user.username}/repos/#{current_user.username}/stats/commit_activity#{client_key_and_secret}"))              
+  def recent_commits(repo)
+    parse(connection.get("repos/#{current_user.username}/#{repos}/commits#{current_user.username}/stats/commit_activity#{client_key_and_secret}"))              
   end
 
   def events
-    parse(connection.get("users/#{current_user.username}/events#{auth}"))
+    parse(connection.get("users/#{current_user.username}/received_events#{client_key_and_secret}"))
   end
 
   # def single_repo

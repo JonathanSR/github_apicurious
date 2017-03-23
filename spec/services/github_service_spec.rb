@@ -46,7 +46,7 @@ describe GithubService do
   describe "#followers info" do 
     it "can find followers info" do 
       followers_info = @service.followers
-      #byebug
+      byebug
       expect(followers_info.first[:login]).to eq("Carmer")
       expect(followers_info.first[:avatar_url]).to eq("https://avatars0.githubusercontent.com/u/9501766?v=3")
       expect(followers_info.first[:html_url]).to eq("https://github.com/Carmer")
