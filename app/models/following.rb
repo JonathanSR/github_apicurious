@@ -17,7 +17,6 @@ attr_reader :type,
 
   def self.find_following_info(current_user)
     details = GithubService.new(current_user)
-    #byebug
     activities = details.events.map do |activity|
     new(activity)
     end

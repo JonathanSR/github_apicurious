@@ -1,10 +1,10 @@
 class GithubOauth
-attr_reader :code, :client_id, :client_secret
+attr_reader :code, :client_id, :client_secret, :access_token
 
 def initialize(code)
   @code = code
   @client_id = ENV['client_id']
-  @client_secret = ENV['client_secret']
+  @client_secret = ENV['client_secret'] 
 
 end
 

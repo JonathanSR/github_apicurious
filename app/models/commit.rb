@@ -1,23 +1,22 @@
-class Commits 
-attr_reader :type
-            :author,
+class Commit
+attr_reader :type,
             :repo,
             :repo_url, 
             :message, 
             :date
 
-  def initialize(events)
-    @type     = events[:type]
-    @author   = events[:actor][:login]
-    @repo     = events[:repo][:name]
-    @repo_url = events[:repo][:url] 
-    @message  = events[:payload][:ref]
-    @date     = events[:created_at]
+  def initialize(activity)
+    @type     = activity[:type]
+    @repo     = activity[:repo][:name]
+    @repo_url = activity[:repo][:url]
+    @message  = activity[:payload][:commits]
+    @date     = activity[:created_at]
   end
 
   def self.find_commit_info(current_user)
     details = GithubService.new(current_user)
-    activity = details.events
-    new(events)
+    activity = details.commits.map do |activity|
+    new(activity)
+    end
   end
-
+end

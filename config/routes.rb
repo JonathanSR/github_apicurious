@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
   get"/commits", to: "commits#index"
   get"/following", to: "followings#index"
-#  resources :dashboard, only: [:index]
+  get "/organizations", to: "organizations#index"
+  get"/commits", to: "commits#index"
 end
