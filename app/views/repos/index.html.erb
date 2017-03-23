@@ -1,0 +1,8 @@
+<% @repos.each do |repo| %>
+     <h2> Repo Name: <%= repo.name %> </h2>
+     <p>Is It forked? <%=repo.forked%></p>
+     <p>Times Forked: <%=repo.forks%></p>
+     <p>Primary language: <%=repo.language%></p>
+     <p>Updated at: <%=repo.updated_at%></p>
+     <p>Private? <%=repo.status%></p>   
+<%end %>
