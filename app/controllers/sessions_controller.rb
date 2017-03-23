@@ -1,21 +1,18 @@
 class SessionsController < ApplicationController
   
   def create
-  github_oauth = GithubOauth.new(params['code'])
-  access_token = github_oauth.access_token
-  data = github_oauth.data
+    github_oauth = GithubOauth.new(params['code'])
+    access_token = github_oauth.access_token
+    data = github_oauth.data
 
-  user = User.from_github(data, access_token)
-  byebug
-  session[:user_id] = user.id
+    user = User.from_github(data, access_token)
+    session[:user_id] = user.id
   
-  redirect_to dashboard_index_path
-end
+    redirect_to dashboard_path
+  end
 
-
-def destroy
-  session.clear
-  redirect_to root_path
-end
-
+  def destroy
+    session.clear
+    redirect_to root_path
+  end
 end

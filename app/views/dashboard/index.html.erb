@@ -1,6 +1,8 @@
 <h1>Dashboard</h1>
-<%= user_info.name %>
-<%= current_user.username%>
-<%=current_user.followers%>
-<%=current_user.following%>
-<%=image_tag current_user.image%>
+<%=image_tag @user.image%></br>
+Name: <%=@user.name%></br>
+Number of Repos: <%=@user.repos%>  <%=link_to "Information", repos_path%></br>
+Number of Follower: <%=@user.followers%></br>
+Number of Following: <%=@user.following%></br>
+<%= link_to "Logout", logout_path%>
+
