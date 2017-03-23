@@ -1,0 +1,9 @@
+<%@followings.each do |following|%>
+  <h3>UserName: <%=following.author%></h3>
+  <p>Type: <%=following.type%></p>
+  <p>Repo: <%=following.repo%> </p>
+  <p>URL: <%=following.repo_url%></p>
+  <p>Message: <%=following.message%></p>
+  <p>Date: <%=following.date%></p>
+  <%end%>
+  
