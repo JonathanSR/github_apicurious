@@ -13,11 +13,12 @@ def initialize(user_information)
   byebug
 end
 
-def find_user_info(current_user)
-  byebug
-    details = GithubService.new(current_user, access_token)
+def self.find_user_info(current_user)
+  #byebug
+    details = GithubService.new(current_user)
     user_information = details.user_info
-    byebug
+    # user_information = details.user_info
+    #byebug
 end
 
 end

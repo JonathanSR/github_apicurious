@@ -1,14 +1,13 @@
-#require 'github_oauth'
-
 class GithubService
-  #extend GithubOauth
-  attr_reader :connection, :client_key_and_secret, :current_user, :access_token
+  attr_reader :connection, 
+              :client_key_and_secret, 
+              :current_user
 
-  def initialize(current_user, access_token)
+  def initialize(current_user)
     @connection = Faraday.new('https://api.github.com/')
     #byebug
     @current_user = current_user
-    @access_token = access_token
+    #@access_token = access_token
     #byebug
   end
 
@@ -17,16 +16,16 @@ class GithubService
   end
 
   def user_info 
-    parse(connection.get("/users/#{current_user.username}#{client_key_and_secret}"))
+    parse(connection.get("users/#{current_user.username}#{client_key_and_secret}"))
   end
 
   def repos
-    parse(connection.get("/users/#{current_user.username}/repos#{client_key_and_secret}"))
+    parse(connection.get("users/#{current_user.username}/repos#{client_key_and_secret}"))
   end
   
   ####count the repo
   def starred_repos
-    parse(connection.get("/users/#{current_user.username}/starred#{client_key_and_secret}"))
+    parse(connection.get("users/#{current_user.username}/starred#{client_key_and_secret}"))
   end
 
   def organizations
