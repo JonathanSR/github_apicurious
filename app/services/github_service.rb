@@ -7,10 +7,7 @@ class GithubService
     @current_user = current_user
     @connection = Faraday.new('https://api.github.com/')
     @connection.headers[:Authorization] = "token #{@current_user.token}"
-  end
-
-  def client_key_and_secret
-   "?client_id=#{ENV["client_id"]}&client_secret=#{ENV["client_secret"]}"
+    #byebug
   end
 
   def user_info 
