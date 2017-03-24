@@ -4,7 +4,7 @@ describe GithubService do
 attr_reader :service
 
   before(:each) do
-    current_user = User.create!(uid:"13320451", username:"JonathanSR", token:"7dd9c78a5ef6107a0f2be55d62beeec4acf676fe" )
+    current_user = User.create!(uid:"13320451", username:"JonathanSR" )
     @service = GithubService.new(current_user)
   end
 
